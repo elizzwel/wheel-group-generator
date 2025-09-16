@@ -87,6 +87,44 @@ textarea:focus, .small-input:focus { outline: none; border-color: var(--primary-
 .spin-button:disabled { background: #ccc; color: #666; }
 .remaining-text { margin-top: 1rem; color: #6c757d; font-weight: 500; font-size: 1.05rem; }
 
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+}
+.results-header h2 {
+  margin-bottom: 0; /* Hapus margin bawah dari h2 di dalam header ini */
+  text-align: left;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--secondary-color);
+  color: var(--surface-light);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px var(--shadow-sm);
+}
+.back-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--surface-light);
+  box-shadow: 0 4px 10px var(--shadow-md);
+  transform: translateY(-2px);
+}
+.back-button svg {
+  width: 20px;
+  height: 20px;
+}
+
 .results-wrapper { padding: 2rem; background: var(--surface-dark); border: 1px solid var(--border-light); border-radius: 18px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .last-result-box { text-align: center; padding: 1.5rem; background: #fff; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); opacity: 0; transform: scale(0.8) translateY(20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; border-top: 4px solid var(--accent-color); }
 .last-result-box.show-animation { opacity: 1; transform: scale(1) translateY(0); }
@@ -105,7 +143,7 @@ h2 { font-weight: 700; font-size: 1.8rem; color: var(--primary-color); margin-bo
 .group-card ul { list-style-type: none; padding: 1rem 1.2rem; margin: 0; }
 .group-card li { padding: 0.6rem 0; border-bottom: 1px dashed rgba(0,0,0,0.08); }
 .group-card li:last-child { border-bottom: none; }
-.reset-button { width: 100%; margin-top: 2rem; padding: 1rem; background: var(--text-secondary); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; transition: all 0.3s ease; }
+.reset-button { width: 100%; margin-top: 2rem; padding: 1rem; background: var(--text-secondary); color: rgb(255, 255, 255); border: none; border-radius: 12px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; transition: all 0.3s ease; }
 .reset-button svg { width: 20px; height: 20px; }
 .reset-button:hover { background: #5a5a5a; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 .error-message { color: #d93025; background-color: rgba(217, 48, 37, 0.1); border: 1px solid #d93025; padding: 1rem; border-radius: 8px; font-weight: 500; margin-top: 1.5rem; }

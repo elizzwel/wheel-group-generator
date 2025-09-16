@@ -92,7 +92,7 @@ function App() {
       setWheelData(allMembers.map(member => ({ option: member })));
       setCurrentGroupIndex(0);
     } 
-    
+
     // PRIORITAS 3: Mode Acak Penuh
     else {
       setPredeterminedSequence([]);
@@ -152,7 +152,18 @@ function App() {
     }
   };
 
-  const resetGame = (): void => { setIsGameReady(false); };
+  const resetGame = (): void => {
+    setIsGameReady(false);
+    setError('');
+    setFinalGroups([]);
+    setAvailableMembers([]);
+    setLastResult(null);
+    setIsFinished(false);
+    // Kita tidak mereset input pengguna agar mereka bisa melakukan sedikit perubahan
+    // setMembersInput('');
+    // setPinnedMembersInput('');
+    // setSequenceInput('');
+  };
   
   const handleMembersChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => setMembersInput(e.target.value);
   const handleSequenceChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => setSequenceInput(e.target.value);
@@ -238,6 +249,13 @@ function App() {
             </div>
 
             <div className="results-wrapper">
+              <div className="results-header">
+                <h2>Hasil Pembagian Grup</h2>
+                <button onClick={resetGame} className="back-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M15.79 15.79a.75.75 0 01-1.06 0l-4.244-4.243a.75.75 0 010-1.06l4.244-4.243a.75.75 0 011.06 1.06L12.31 10l3.48 3.47a.75.75 0 010 1.06l-.22.22z" clipRule="evenodd" /><path fillRule="evenodd" d="M8.29 15.79a.75.75 0 01-1.06 0l-4.244-4.243a.75.75 0 010-1.06l4.244-4.243a.75.75 0 111.06 1.06L5.81 10l3.48 3.47a.75.75 0 010 1.06l-.22.22z" clipRule="evenodd" /></svg>
+                  <span>Kembali</span>
+                </button>
+              </div>
               {lastResult && showResultAnimation && (
                 <div ref={resultRef} className="last-result-box show-animation">
                   <p className="result-label">Terpilih!</p>
@@ -266,10 +284,10 @@ function App() {
                   </div>
                 ))}
               </div>
-              <button onClick={resetGame} className="reset-button">
+              {/* <button onClick={resetGame} className="reset-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M15.312 11.424a5.25 5.25 0 01-9.356 3.076l-1.5 1.5a.75.75 0 01-1.06-1.06l1.5-1.5a5.25 5.25 0 119.416-3.116z" clipRule="evenodd" /><path fillRule="evenodd" d="M6.343 11.03a.75.75 0 01-1.06-1.06l-1.5 1.5a.75.75 0 010 1.06l1.5 1.5a.75.75 0 11-1.06-1.06l-1.03-1.03a3.75 3.75 0 10-4.342-4.342 3.75 3.75 0 004.342 4.342l1.03 1.03z" clipRule="evenodd" /></svg>
                 Atur Ulang
-              </button>
+              </button> */}
             </div>
           </section>
         )}
